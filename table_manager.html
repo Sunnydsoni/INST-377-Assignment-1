@@ -207,7 +207,101 @@ var organizations = [
 console.log(organizations[0]);
 
 // Your JavaScript code goes here
+var countNonprofit = 0;
+var countYears = 0;
+var countNorthamerica = 0;
+var countTransport = 0;
+var countSectors = 0;
+var body = document.getElementById("org_table");
+var tbl = document.createElement("table");
+var tblBody = document.createElement("tblBody");
+var row = document.createElement("tr");
+var cell = document.createElement("td");
+var cellText = document.createTextNode("Number of Non-Profit Organizations");
 
+//row #1
+cell.appendChild(cellText);
+row.appendChild(cell);
+cell = document.createElement("td");
+organizations.forEach(orgFunction);
+cellText = document.createTextNode(countNonprofit);
+cell.appendChild(cellText);
+row.appendChild(cell);
+tblBody.appendChild(row);
+
+//row #2
+row = document.createElement("tr");
+cell = document.createElement("td");
+cellText = document.createTextNode("Number of Organizations Less Than 10 Years Old");
+cell.appendChild(cellText);
+row.appendChild(cell);
+cell = document.createElement("td");
+cellText = document.createTextNode(countYears);
+cell.appendChild(cellText);
+row.appendChild(cell);
+tblBody.appendChild(row);
+
+//row #3
+row = document.createElement("tr");
+cell = document.createElement("td");
+cellText = document.createTextNode("Number of Organizations in North America");
+cell.appendChild(cellText);
+row.appendChild(cell);
+cell = document.createElement("td");
+cellText = document.createTextNode(countNorthamerica);
+cell.appendChild(cellText);
+row.appendChild(cell);
+tblBody.appendChild(row);
+
+//row #4
+row = document.createElement("tr");
+cell = document.createElement("td");
+cellText = document.createTextNode("Number of Organizations with Transportation Data Type");
+cell.appendChild(cellText);
+row.appendChild(cell);
+cell = document.createElement("td");
+cellText = document.createTextNode(countTransport);
+cell.appendChild(cellText);
+row.appendChild(cell);
+tblBody.appendChild(row);
+
+//row #5
+row = document.createElement("tr");
+cell = document.createElement("td");
+cellText = document.createTextNode("Number of Organizations in IT and Geospatial Sector");
+cell.appendChild(cellText);
+row.appendChild(cell);
+cell = document.createElement("td");
+cellText = document.createTextNode(countSectors);
+cell.appendChild(cellText);
+row.appendChild(cell);
+tblBody.appendChild(row);
+tbl.appendChild(tblBody);
+body.appendChild(tbl);
+
+//Organizations Function 
+function orgFunction(value){
+	if (value["Organization Type"] == "Nonprofit") {
+		countNonprofit = countNonprofit + 1;
+	}
+	if (value["Founding Year"] > 2008) {
+		countYears = countYears + 1;
+	}
+	if (value["Region"] == "North America") {
+		countNorthamerica = countNorthamerica + 1;
+	}
+	if (value["Type of Data Used"] == "Transportation") {
+		countTransport = countTransport + 1;
+	}
+	if (value["Sectors"] == "IT and geospatial") {
+		countSectors = countSectors + 1;
+	}
+}
+
+</script>
+
+</body>
+</html>
 
 </script>
 
